@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import CommentDetail from './components/CommentDetail'
+import ApprovalCard from './components/ApprovalCard'
 
 const App = () => {
   return (
       <div className={'ui container comments'}>
-        <div className={'comment'}>
-          <a href={'/'} className={'avatar'}>
-            <img alt={'avatar'} />
-          </a>
-          <div className={'content'}>
-            <a href={'/'} className={'author'}>
-              Bhumika
-            </a>
-            <div className={'metadata'}>
-              <span className={'date'}>Today at 6:00PM</span>
-            </div>
-            <div className={'text'}>Nice blog post!</div>
-          </div>
-        </div>
+        <ApprovalCard>
+          <CommentDetail author={'Bhumika'} timestamp={Date.now()} text={'Good Blog!'}/>
+        </ApprovalCard>
+        <ApprovalCard>
+          <CommentDetail author={'Shreyas'} timestamp={Date.now()} text={'Show something new'}/>
+        </ApprovalCard>
+        <ApprovalCard>
+          <CommentDetail author={'Monkey'} timestamp={Date.now()} text={'Can I borrow Banan'}/>
+        </ApprovalCard>
       </div>
   )
 
