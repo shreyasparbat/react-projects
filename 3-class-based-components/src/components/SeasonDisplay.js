@@ -3,27 +3,32 @@ import React from 'react'
 class SeasonDisplay extends React.Component {
     // Initialise state
     state = {
-        season: ''
+        seasonText: ''
     }
 
-    // Get season from lat and month
-    getSeason = (lat) => {
+    // Find season
+    static getSeason(lat) {
         const month = new Date().getMonth()
         if (month > 2 && month < 9) {
             return lat > 0 ? 'summer' : 'winter'
         }
-        return lat > 0 ? 'winter' : 'summer'
+        else {
+            return lat > 0 ? 'winter' : 'summer'
+        }
     }
 
     componentDidMount() {
         this.setState({
-            lat: this.getSeason(this.props.lat)
+            seasonText: SeasonDisplay.getSeason(this.props.lat) === 'summer' ? 'Let\'s hit the beach!' : 'It\'s chilly!'
         })
+
     }
 
     render() {
         return (
-            <div>Season: {this.state.season}</div>
+            <div>
+                <h1>{this.state.seasonText}</h1>
+            </div>
         )
     }
 }
