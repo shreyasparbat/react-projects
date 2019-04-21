@@ -5,9 +5,14 @@ export default class Loader extends React.Component {
         return (
             <div className={'ui active dimmer'}>
                 <div className={'ui big text loader'}>
-                    Loading
+                    {this.props.loadText}
                 </div>
             </div>
         )
     }
+}
+
+// Set default props for Loader
+Loader.defaultProps = {
+    loadText: 'Loading'
 }

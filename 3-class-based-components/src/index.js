@@ -25,9 +25,10 @@ class App extends Component {
         )
     }
 
-    render() {
+    // Contains logic to display the right content for each scenario
+    renderContent() {
         // If received lat without errors
-        if (this.state.lat && !this.state.errMsg) {
+            if (this.state.lat && !this.state.errMsg) {
             return <SeasonDisplay lat={this.state.lat}/>
         }
 
@@ -37,7 +38,15 @@ class App extends Component {
         }
 
         // If still waiting for browser reply
-        return <Loader />
+        return <Loader loadText={'Waiting for location'}/>
+    }
+
+    render() {
+        return (
+            <div className={'border red'}>
+                {this.renderContent()}
+            </div>
+        )
     }
 }
 
