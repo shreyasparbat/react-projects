@@ -1,6 +1,10 @@
+// Library imports
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+
+// Component imports
 import SeasonDisplay from './components/SeasonDisplay'
+import Loader from './components/Loader'
 
 class App extends Component {
     // Initialise state
@@ -33,7 +37,7 @@ class App extends Component {
         }
 
         // If still waiting for browser reply
-        return <div>Loading!</div>
+        return <Loader />
     }
 }
 
